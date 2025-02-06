@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "elasticsearch": "^16.7.3",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "joi": "^17.13.3",
+    "mongoose": "^8.9.6",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0"
+  },
+  "name": "products",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
