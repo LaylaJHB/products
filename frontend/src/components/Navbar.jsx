@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { Link } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import styled from "styled-components";

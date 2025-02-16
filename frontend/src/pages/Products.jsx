@@ -4,7 +4,7 @@ import produto1 from '../assets/IPhone15Pro.jpeg';
 import produto2 from '../assets/6c92c563-6982-4744-bbc1-e38e39cab7f1.jpeg';
 import produto3 from '../assets/Watch .jpeg';
 
-// Dados estáticos de exemplo (você pode futuramente integrar com a sua API)
+// Dados estáticos de exemplo (integrar com API)
 const products = [
   {
     id: 1,
