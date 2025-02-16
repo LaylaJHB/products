@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import React from 'react';
+import produto1 from '../assets/IPhone15Pro.jpeg';
+import produto2 from '../assets/6c92c563-6982-4744-bbc1-e38e39cab7f1.jpeg';
+import produto3 from '../assets/Watch .jpeg';
+
 
 const HighlightSection = styled.section`
   display: flex;
@@ -51,19 +57,19 @@ const products = [
     id: 1,
     name: "iPhone 15 Pro",
     description: "O smartphone mais avançado da Apple.",
-    image: "/images/iphone.jpg",
+    image: produto1,
   },
   {
     id: 2,
     name: "MacBook Air M2",
     description: "O equilíbrio perfeito entre potência e portabilidade.",
-    image: "/images/macbook.jpg",
+    image: produto2,
   },
   {
     id: 3,
     name: "Apple Watch Ultra",
     description: "A revolução no monitoramento da saúde.",
-    image: "/images/watch.jpg",
+    image: produto3,
   },
 ];
 
@@ -75,7 +81,9 @@ const ProductHighlight = () => {
           <img src={product.image} alt={product.name} />
           <h3>{product.name}</h3>
           <p>{product.description}</p>
-          <button>Ver Mais</button>
+          <Link to={`/produto/${product.id}`}>
+            <button>Ver Mais</button>
+          </Link>
         </ProductCard>
       ))}
     </HighlightSection>

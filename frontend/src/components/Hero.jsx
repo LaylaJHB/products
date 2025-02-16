@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const HeroSection = styled.section`
   display: flex;
@@ -40,11 +41,18 @@ const Button = styled.button`
 `;
 
 const Hero = () => {
+  const handleClick = () => {
+    console.log('Botão clicado!'); // Ação adicional
+    // Pode adicionar mais lógica aqui, antes da navegação
+  };
+
   return (
     <HeroSection>
       <h1>Descubra o Futuro da Tecnologia</h1>
       <p>Produtos inovadores com design impecável. O melhor da tecnologia, na sua casa.</p>
+      <Link to="/produtos">
       <Button>Explorar Produtos</Button>
+      </Link>
     </HeroSection>
   );
 };
