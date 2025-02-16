@@ -2,6 +2,7 @@ import { ThemeProviderWrapper } from "./context/ThemeContext";
 import { CartProvider } from "./context/CartContext";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -19,17 +20,24 @@ function App() {
         <GlobalStyle />
         <Router>
           <Navbar />
+          
           <Routes>
+          
           <Route path="/" element={<Home />} /> {/* Página inicial */}
             <Route path="/produtos" element={<Products />} />
             <Route path="/produto/:id" element={<ProductDetail />} />
             <Route path="/carrinho" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+      
           </Routes>
+        
         </Router>
+    
       </CartProvider>
+  
     </ThemeProviderWrapper>
+    
   );
 }
 
