@@ -1,80 +1,6 @@
-// import styled from "styled-components";
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
-
-// const FormContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 2rem;
-// `;
-
-// const Form = styled.form`
-//   display: flex;
-//   flex-direction: column;
-//   width: 300px;
-// `;
-
-// const Input = styled.input`
-//   padding: 10px;
-//   margin-bottom: 1rem;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-// `;
-
-// const Button = styled.button`
-//   padding: 10px;
-//   background: ${({ theme }) => theme.primary};
-//   color: white;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   &:hover {
-//     opacity: 0.8;
-//   }
-// `;
-
-// const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Integre com o seu backend (Firebase, API Node, etc.)
-//     console.log("Login:", { email, password });
-//   };
-
-//   return (
-//     <FormContainer>
-//       <h2>Login</h2>
-//       <Form onSubmit={handleSubmit}>
-//         <Input 
-//           type="email" 
-//           placeholder="Email" 
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <Input 
-//           type="password" 
-//           placeholder="Senha"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           required
-//         />
-//         <Button type="submit">Entrar</Button>
-//       </Form>
-//       <p>
-//         Não tem uma conta? <Link to="/signup">Cadastre-se</Link>
-//       </p>
-//     </FormContainer>
-//   );
-// };
-
-// export default Login;
-
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const LoginContainer = styled.div`
@@ -111,24 +37,64 @@ const Button = styled.button`
   }
 `;
 
+const Message = styled.p`
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: ${({ success }) => (success ? "green" : "red")};
+  background: ${({ success }) => (success ? "#d4edda" : "#f8d7da")};
+`;
+
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState({ text: "", success: false });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(email, password);
+
+    const isLoggedIn = login(email, password);
+
+    if (isLoggedIn) {
+      setMessage({ text: "✅ Login realizado com sucesso!", success: true });
+
+      // Aguarda 2 segundos antes de redirecionar
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } else {
+      setMessage({ text: "❌ Credenciais inválidas!", success: false });
+
+      setTimeout(() => {
+        setMessage({ text: "", success: false });
+      }, 3000);
+    }
   };
 
   return (
     <LoginContainer>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <Input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <Input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <Input
+          type="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
         <Button type="submit">Entrar</Button>
       </form>
+
+      {message.text && <Message success={message.success}>{message.text}</Message>}
     </LoginContainer>
   );
 };

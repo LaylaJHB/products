@@ -3,54 +3,32 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(() => {
+    return JSON.parse(localStorage.getItem("user")) || null;
+  });
+
   const navigate = useNavigate();
 
-  // Carregar usuário do localStorage ao iniciar
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
   const login = (email, password) => {
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  
-    // Verifica se o usuário existe e a senha está correta
-    const validUser = existingUsers.find(user => user.email === email && user.password === password);
-    
-    if (validUser) {
-      localStorage.setItem("user", JSON.stringify(validUser));
-      setUser(validUser);
-      navigate("/");
+    if (email === "admin@email.com" && password === "123456") {
+      const userData = { email };
+      localStorage.setItem("user", JSON.stringify(userData));
+      setUser(userData);
+      return true; // ✅ Indica que o login foi bem-sucedido
     } else {
-      alert("Credenciais inválidas!");
+      return false; // ❌ Indica falha no login
     }
   };
-  
 
-  const register = (email, password, name) => {
-    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  
-    // Verifica se o email já está cadastrado
-    const userExists = existingUsers.find(user => user.email === email);
-    if (userExists) {
-      alert("Este email já está cadastrado!");
-      return;
-    }
-  
-    const newUser = { name, email, password };
-    const updatedUsers = [...existingUsers, newUser];
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-  
-    setUser(newUser);
-    alert("Cadastro realizado com sucesso!");
+  const register = (email, password) => {
+    const userData = { email };
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
     navigate("/");
   };
-  
-  
 
   const logout = () => {
     localStorage.removeItem("user");
