@@ -14,3 +14,4 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 `;
+

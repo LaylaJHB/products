@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const FormContainer = styled.div`
   display: flex;
@@ -35,19 +36,28 @@ const Button = styled.button`
 `;
 
 const Signup = () => {
+  const { register } = useContext(AuthContext); // Pega a função register do contexto
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState(""); // Estado para exibir mensagens
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Integre com o seu backend (Firebase, API Node, etc.)
-    console.log("Signup:", { name, email, password });
+
+    if (!name || !email || !password) {
+      setMessage("Preencha todos os campos!");
+      return;
+    }
+
+    register(email, password, name); // Chama a função register com o nome
+    setMessage("Cadastro realizado com sucesso!");
   };
 
   return (
     <FormContainer>
       <h2>Cadastro</h2>
+      {message && <p style={{ color: "green" }}>{message}</p>} {/* Mensagem de feedback */}
       <Form onSubmit={handleSubmit}>
         <Input 
           type="text" 
