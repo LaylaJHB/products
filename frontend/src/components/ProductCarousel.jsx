@@ -3,14 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-import produto1 from '../assets/IPhone15Pro.jpeg';
-import produto4 from '../assets/50310.jpg';
-import produto3 from '../assets/Watch .jpeg';
+import produto4 from '../assets/IPhone15Pro.jpeg';
+import produto5 from '../assets/50310.jpg';
+import produto6 from '../assets/view-computer-monitor-display-with-desk.jpg';
 
 const products = [
-  { id: 1, name: produto1, image: produto1 },
-  { id: 2, name: produto4, image: produto4 },
-  { id: 3, name: "Produto 3", image: "https://via.placeholder.com/300" },
+  { id: 4, name: produto4, image: produto4 },
+  { id: 5, name: produto5, image: produto5 },
+  { id: 6, name: produto6, image: produto6 },
 ];
 
 const ProductCarousel = () => {
