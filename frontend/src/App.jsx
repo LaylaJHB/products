@@ -11,6 +11,8 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
+import AccountPage from "./pages/AccountPage";
+import OrdersPage from "./pages/OrdersPage";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/chat" element={<Chat />} />
+              <Route path="/conta" element={<AccountPage />} />
+              <Route path="/pedidos" element={<OrdersPage />} />
             </Routes>
             </AuthProvider>
           </Router>

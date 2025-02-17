@@ -39,6 +39,8 @@ const Navbar = () => {
         <Link to="/signup">Cadastro</Link>
         <Link to="/chat">Chat com IA</Link>
         <Link to="/carrinho">Carrinho</Link>
+        <Link to="/pedidos">Meus pedidos</Link>
+        <Link to="/conta">Minha conta</Link>
       </NavLinks>
       <ThemeToggle />
     </Nav>
