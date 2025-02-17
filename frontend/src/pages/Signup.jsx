@@ -56,7 +56,7 @@ const Signup = () => {
 
   return (
     <FormContainer>
-      <h2>Cadastro</h2>
+      <h2>Crie sua conta</h2>
       {message && <p style={{ color: "green" }}>{message}</p>} {/* Mensagem de feedback */}
       <Form onSubmit={handleSubmit}>
         <Input 
@@ -80,7 +80,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit">Criar conta</Button>
       </Form>
       <p>
         Já tem uma conta? <Link to="/login">Faça Login</Link>

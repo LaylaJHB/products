@@ -36,11 +36,12 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/produtos">Produtos</Link>
         <Link to="/login">Login</Link>
-        <Link to="/signup">Cadastro</Link>
+        <Link to="/signup">Crie sua conta</Link>
         <Link to="/chat">Chat com IA</Link>
         <Link to="/carrinho">Carrinho</Link>
         <Link to="/pedidos">Meus pedidos</Link>
         <Link to="/conta">Minha conta</Link>
+        <Link to="/contato">Contato</Link>
       </NavLinks>
       <ThemeToggle />
     </Nav>

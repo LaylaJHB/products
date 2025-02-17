@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import Chat from "./pages/Chat";
 import AccountPage from "./pages/AccountPage";
 import OrdersPage from "./pages/OrdersPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/chat" element={<Chat />} />
               <Route path="/conta" element={<AccountPage />} />
               <Route path="/pedidos" element={<OrdersPage />} />
+              <Route path="/contato" element={<ContactPage />} />
             </Routes>
             </AuthProvider>
           </Router>
