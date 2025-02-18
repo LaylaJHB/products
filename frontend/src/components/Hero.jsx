@@ -7,7 +7,7 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 80vh;
+  height: 60vh;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   padding: 2rem;
@@ -27,7 +27,7 @@ const HeroSection = styled.section`
 
 const Button = styled.button`
   padding: 10px 20px;
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   border: none;
   border-radius: 5px;
   background: ${({ theme }) => theme.primary};

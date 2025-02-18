@@ -7,8 +7,9 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <ProductHighlight />
       <ProductCarousel />
+      <ProductHighlight />
+
       <Footer />
     </>
   );
