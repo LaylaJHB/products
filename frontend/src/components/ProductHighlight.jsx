@@ -71,6 +71,36 @@ const products = [
     description: "A revolução no monitoramento da saúde.",
     image: produto3,
   },
+  {
+    id: 4,
+    name: "iPhone 15 Pro",
+    description: "O smartphone mais avançado da Apple.",
+    image: produto1,
+  },
+  {
+    id: 5,
+    name: "MacBook Air M2",
+    description: "O equilíbrio perfeito entre potência e portabilidade.",
+    image: produto2,
+  },
+  {
+    id: 6,
+    name: "Apple Watch Ultra",
+    description: "A revolução no monitoramento da saúde.",
+    image: produto3,
+  },
+  {
+    id: 7,
+    name: "Apple Watch Ultra",
+    description: "A revolução no monitoramento da saúde.",
+    image: produto3,
+  },
+  {
+    id: 8,
+    name: "Apple Watch Ultra",
+    description: "A revolução no monitoramento da saúde.",
+    image: produto3,
+  },
 ];
 
 const ProductHighlight = () => {
